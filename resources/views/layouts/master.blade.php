@@ -7,7 +7,7 @@
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<title>{{ config('app.name', 'Laravel') }}</title>
+		<title>{{ config('app.name', 'Tabilu') }} {{ __(' | ') }} @yield('metaTitle')</title>
 
 		<!-- Styles -->
 		{{-- @unless(isset($noBaseStyle))
@@ -21,6 +21,8 @@
             @yield('body')
         </div>
 
+		
+		<script src="{{ asset('/js/app.js') }}"></script>
 		@stack('scripts')
 	</body>
 </html>

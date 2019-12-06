@@ -24,4 +24,17 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Check curren admin auth is the root
+     * 
+     * @return boolean
+     */
+    public function isRoot() {
+        if($this->is_root === 1) {
+            return true;
+        }
+
+        return false;
+    }
 }

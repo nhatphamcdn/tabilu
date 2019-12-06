@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class AdminController extends BaseController
+class DashboardController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -17,12 +17,13 @@ class AdminController extends BaseController
     }
 
     /**
-     * Render admin view.
+     * Render dashboard view.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admins.index');
+        // \Auth::user()->isRoot();
+        return view('dashboards.index');
     }
 }

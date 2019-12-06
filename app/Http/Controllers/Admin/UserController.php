@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class AdminController extends BaseController
+class UserController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -17,12 +17,11 @@ class AdminController extends BaseController
     }
 
     /**
-     * Render admin view.
-     *
+     * Render view management users
+     * 
      * @return void
      */
-    public function index()
-    {
-        return view('admins.index');
-    }
+    public function index() {
+        return view('users.index');
+    } 
 }

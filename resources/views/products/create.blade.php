@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 {{-- Set Meta Title --}}
-@section('metaTitle', 'Dashboard')
+@section('metaTitle', 'Create Product')
 {{-- End Set Meta Title --}}
 
 {{-- Body Content --}}
 @section('content')
 <div class="content-wrapper">
-    {{ __('Hello DashBoard') }}
+    {{ __('Create Products.') }}
+
+    @include('products._partials.form')
     <!-- <div class="content-wrapper-before"></div>
     <div class="content-header row"></div> -->
 </div>

@@ -1,0 +1,19 @@
+$main: #ffc107;
+$black: #333;
+$blue-white: #ecf4f3;
+$blue-white-bold: #d8eae8;
+
+
+$textColor: ();
+$textColor: map-merge((
+  "link": $black
+), $textColor);
+
+
+$backgroundColor: ();
+$backgroundColor: map-merge((
+  "body": $blue-white,
+  "input": $blue-white,
+  "input-focus": $blue-white-bold,
+  "card-header": $main
+), $backgroundColor);

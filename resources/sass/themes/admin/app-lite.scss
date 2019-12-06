@@ -1,0 +1,19 @@
+// ================================================================================================
+// 	File Name: app.scss
+// 	Description: Mail application scss file.
+// ================================================================================================
+
+// Variables
+// ------------------------------
+
+// Core variables and mixins overrides
+@import "core/mixins/transitions";
+
+// Overrides user variable
+@import "variables/variables";
+@import "variables/components-variables";
+
+@import "./bootstrap-extended";
+@import "./components-lite";
+@import "./colors";
+@import "./vendors";

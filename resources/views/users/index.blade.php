@@ -7,9 +7,11 @@
 {{-- Body Content --}}
 @section('content')
 <div class="content-wrapper">
-    {{ __('Hello Users') }}
-    <!-- <div class="content-wrapper-before"></div>
-    <div class="content-header row"></div> -->
+    <div class="content-header row">
+        <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">{{ __('Users') }}</h3>
+        </div>
+    </div>
 </div>
 @endsection
 {{-- End Body Content --}}

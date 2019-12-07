@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-require('./instantclick');
 
 // window.Vue = require('vue');
 
@@ -31,3 +30,20 @@ require('./instantclick');
 // const app = new Vue({
 //     el: '#app',
 // });
+
+// Loading Indicator Start
+const actionLoader = () => {
+  $('.preloader').hide();
+  $('.body-content').css('opacity', 1);
+};
+
+InstantClick.on('change', function() {
+  actionLoader();
+});
+
+window.onload = function () {
+  $('.preloader').fadeOut(500, function(){
+    actionLoader();
+  });
+};
+// End Loading Indicator

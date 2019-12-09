@@ -24,7 +24,7 @@
 		{{-- Import Javascript --}}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.1.0/instantclick.min.js" data-no-instant></script>
 		<script data-no-instant>InstantClick.init();</script>
-		<script src="{{ asset('/js/app.js') }}" data-no-instant></script>
+		<script src="{{ asset('/js/app.js') }}" data-instant-track></script>
 		{{-- End Import Javascript --}}
 		
 		{{-- Push Script In Layout --}}

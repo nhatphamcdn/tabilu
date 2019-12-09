@@ -16567,49 +16567,61 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! trumbowyg */ "./node_modules/trumbowyg/dist/trumbowyg.js");
 
-__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js"); // Loading Indicator Start
+__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js"); // Define selectize
 
+
+var constant = {
+  _initSelectize: function _initSelectize() {
+    $('#select-hashtag').selectize({
+      plugins: ['remove_button'],
+      persist: false,
+      maxItems: null,
+      valueField: 'name',
+      labelField: 'name',
+      searchField: ['name'],
+      items: ['Shoe', 'Box'],
+      options: [{
+        name: 'Shoe'
+      }, {
+        name: 'Box'
+      }, {
+        name: 'Tist'
+      }],
+      create: function create(input) {
+        return {
+          name: input
+        };
+      }
+    });
+  },
+  _initTrumbowyg: function _initTrumbowyg() {
+    $('.editor').trumbowyg({
+      svgPath: '/img/icons/trumbowyg/icons.svg'
+    });
+  }
+}; // End Define selectize
+// Loading Indicator Start
 
 var actionLoader = function actionLoader() {
   $('.preloader').hide();
   $('.body-content').css('opacity', 1);
-}; // Apply Tags Input
-
-
-$('#select-hashtag').selectize({
-  plugins: ['remove_button'],
-  persist: false,
-  maxItems: null,
-  valueField: 'name',
-  labelField: 'name',
-  searchField: ['name'],
-  items: ['Shoe', 'Box'],
-  options: [{
-    name: 'Shoe'
-  }, {
-    name: 'Box'
-  }, {
-    name: 'Tist'
-  }],
-  create: function create(input) {
-    return {
-      name: input
-    };
-  }
-}); // End Apply Tags Input
+};
 
 window.onload = function () {
   $('.preloader').fadeOut(100, function () {
     actionLoader();
   });
 }; // End Loading Indicator
-// Apply Trumbowyg Editor
+// Document is ready
 
 
-$('.editor').trumbowyg({
-  svgPath: '/img/icons/trumbowyg/icons.svg'
-}); // End Apply Trumbowyg Editor
-// Instant click handle
+$(document).ready(function () {
+  // Init Trumbowyg Editor
+  constant._initTrumbowyg(); // Init selectize
+
+
+  constant._initSelectize();
+}); // Instant click handle
 
 InstantClick.on('change', function () {
   actionLoader();

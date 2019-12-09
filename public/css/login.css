@@ -39697,6 +39697,12 @@ body {
   padding: 50px 60px;
 }
 
+@media screen and (max-width: 576px) {
+  .auth .main .form-login {
+    padding: 50px 30px;
+  }
+}
+
 .auth .main .form-login::before {
   content: url("/img/login/login.svg");
   position: absolute;
@@ -39723,9 +39729,21 @@ body {
   margin-bottom: 37px;
 }
 
+@media screen and (max-width: 576px) {
+  .auth .main .form-login .form-check {
+    margin-bottom: 15px;
+  }
+}
+
 .auth .main .form-login .link-forgot {
   margin-bottom: 37px;
   font-size: 14px;
+}
+
+@media screen and (max-width: 576px) {
+  .auth .main .form-login .link-forgot {
+    margin-bottom: 15px;
+  }
 }
 
 .auth .main .form-login .link-signup {

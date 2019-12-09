@@ -56,6 +56,10 @@ body {
       background: #fff;
       border-radius: 6px;
       padding: 50px 60px;
+
+      @media screen and (max-width: 576px) {
+        padding: 50px 30px;
+      }
       
       &::before {
         content: url("/img/login/login.svg");
@@ -80,12 +84,18 @@ body {
 
       }
       .form-check {
-        margin-bottom: 37px
+        margin-bottom: 37px;
+        @media screen and (max-width: 576px) {
+          margin-bottom: 15px;
+        }
       }
 
       .link-forgot {
         margin-bottom: 37px;
-        font-size: 14px
+        font-size: 14px;
+        @media screen and (max-width: 576px) {
+          margin-bottom: 15px;
+        }
       }
 
       .link-signup {

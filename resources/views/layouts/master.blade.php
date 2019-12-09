@@ -9,6 +9,7 @@
 
 		<title>{{ config('app.name', 'Tabilu') }} {{ __(' | ') }} @yield('metaTitle')</title>
 
+		<link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
 		@stack('css')
 	</head>
 	<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
@@ -16,13 +17,13 @@
 		@include('layouts._partials.preloader')
 		{{-- End Include Preloader --}}
 
-		<div class="body-content">
-            @yield('body')
-        </div>
+		<div class="body-content" style="opacity: 0">
+			@yield('body')
+		</div>
 
 		{{-- Import Javascript --}}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.1.0/instantclick.min.js" data-no-instant></script>
-		<script data-no-instant>InstantClick.init('mousedown');</script>
+		<script data-no-instant>InstantClick.init();</script>
 		<script src="{{ asset('/js/app.js') }}" data-no-instant></script>
 		{{-- End Import Javascript --}}
 		

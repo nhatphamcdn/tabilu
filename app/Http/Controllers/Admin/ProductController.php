@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends BaseController
 {
@@ -32,5 +33,14 @@ class ProductController extends BaseController
      */
     public function create() {
         return view('products.create');
+    }
+
+    /**
+     * Store data product form
+     * 
+     * @return void
+     */
+    public function store(StoreProductRequest $request) {
+        dd($request->all());
     } 
 }

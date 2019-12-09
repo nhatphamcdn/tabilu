@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 8, 2)->default(0);
             $table->decimal('sale_price', 8, 2)->default(0);
             $table->decimal('share_price', 8, 2)->default(0);
-            $table->integer('point')->default(0);
+            // $table->integer('point')->default(0);
             $table->enum('status', ['available', 'unavailable', 'soldout', 'discount'])->default('available');
             
             $table->unsignedInteger('post_by');

@@ -16,71 +16,149 @@
     {{-- @include('products._partials.form') --}}
     <div class="content-body pt-5">
         <section class="textarea-select">
-            <!-- General start -->
-            <div class="row match-height">
-                <div class="col-lg-8 col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">General</h4>
-                        </div>
-                        <div class="card-block">
-                            <div class="card-body">
-                                <h5 class="mt-2">Basic Textarea</h5>
-                                <fieldset class="form-group">
-                                    <textarea class="form-control" id="basicTextarea" rows="3"></textarea>
-                                </fieldset>
+            <form method="post" action="{{ route('admin.products.store') }}">
+                @csrf
+                <div class="row match-height">
+                    <!-- Start General Form -->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">General</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="card-body">
+                                    <div class="field-group">
+                                        <h5 class="mt-2">{{ __('Name') }}</h5>
+                                        <fieldset class="form-group">
+                                            <input type="text"
+                                                    class="form-control @error('name') is-invalid @enderror"
+                                                    id="name"
+                                                    name="name"
+                                                    value="{{ old('name') }}"
+                                                    {{-- required --}}
+                                                    autocomplete="name">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="field-group">
+                                                <h5 class="mt-2">{{ __('Price') }}</h5>
+                                                <fieldset class="form-group">
+                                                    <div class="input-group mb-2 mr-sm-2">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">VND</div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="field-group">
+                                                <h5 class="mt-2">{{ __('Sale Price') }}</h5>
+                                                <fieldset class="form-group">
+                                                    <div class="input-group mb-2 mr-sm-2">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">VND</div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="field-group">
+                                                <h5 class="mt-2">{{ __('Share Price') }}</h5>
+                                                <fieldset class="form-group">
+                                                    <div class="input-group mb-2 mr-sm-2">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">VND</div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field-group">
+                                        <h5 class="mt-2">{{ __('Content') }}</h5>
+                                        <fieldset class="form-group @error('content') is-invalid @enderror">
+                                            <textarea class="form-control editor"
+                                                        id="content"
+                                                        name="content"
+                                                        rows="3"></textarea>
 
-                                <h5 class="mt-2">Textarea with Placeholder</h5>
-                                <fieldset class="form-group">
-                                    <textarea class="form-control" id="placeTextarea" rows="3" placeholder="Simple Textarea"></textarea>
-                                </fieldset>
-
-                                <h5 class="mt-2">Textarea with Description</h5>
-                                <fieldset class="form-group">
-                                    <p class="text-muted">Textarea description text.</p>
-                                    <textarea class="form-control" id="descTextarea" rows="3" placeholder="Textarea with description"></textarea>
-                                </fieldset>
+                                            @error('content')
+                                                <span class="invalid-feedback d-block" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </fieldset>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Select</h4>
+                    {{-- End General Form --}}
+
+                    {{-- Start Setting Form --}}
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Images</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="card-body">
+                                    {{-- Body --}}
+                                    
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-block">
-                            <div class="card-body">
-                                <h5 class="mt-2">Basic Select</h5>
-                                <fieldset class="form-group">
-                                    <select class="form-control" id="basicSelect">
-                                        <option>Select Option</option>
-                                        <option>Option 1</option>
-                                    </select>
-                                </fieldset>
-                                <h5 class="mt-2">Custom select</h5>
-                                <p>To use custom select add class<code>.custom-select</code> to select.</p>
-                                <fieldset class="form-group">
-                                    <select class="custom-select" id="customSelect">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </fieldset>
-                                <h5 class="mt-2">Multiple select</h5>
-                                <p>To use multiple select add an attribute<code> multiple="multiple"</code>.</p>
-                                <fieldset class="form-group">
-                                    <select class="form-control" id="countrySelect" multiple="multiple">
-                                        <option selected="selected">United States</option>
-                                    </select>
-                                </fieldset>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Setting</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="card-body">
+                                    {{-- Body --}}
+                                    <div class="field-group">
+                                        <h5 class="mt-2">{{ __('# HashTags') }}</h5>
+                                        <fieldset class="form-group">
+                                             {{-- <input type="text"
+                                                    id="input-tags"
+                                                    name="hashtag"
+                                                    placeholder="shoe,box..."
+                                                    value="{{ old('hashtag') }}"
+                                                    autocomplete="hashtag"> --}}
+                                            <select id="select-hashtag" placeholder="shoe,box..."></select>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="field-group">
+                                        <h5 class="mt-2">{{ __('Status') }}</h5>
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="Status" name="status">
+                                                <option value="available">{{ __('Available') }}</option>
+                                                <option value="unavailable">{{ __('Unavailable') }}</option>
+                                            </select>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="text-right">
+                                        <button class="btn btn-primary btn-lg">Save & close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {{-- End Setting Form --}}
                 </div>
-            </div>
-            <!-- Textarea end -->
+            </form>
         </section>
     </div>
 </div>

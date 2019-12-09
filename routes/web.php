@@ -34,6 +34,7 @@ Route::prefix('admin')->group(function() {
     // Products Routes...
     Route::get('/products', ADMIN_CONTROLLER_PRODUCT . '@index')->name('admin.products');
     Route::get('/products/create', ADMIN_CONTROLLER_PRODUCT . '@create')->name('admin.products.create');
+    Route::post('/products/create', ADMIN_CONTROLLER_PRODUCT . '@store')->name('admin.products.store');
 
     // Users Routes...
     Route::get('/users', ADMIN_CONTROLLER_USER . '@index')->name('admin.users');

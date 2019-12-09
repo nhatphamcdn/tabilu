@@ -13,4 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/login.scss', 'public/css')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+   .sass('resources/sass/preloader.scss', 'public/css')
+   .copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/img/icons/trumbowyg');

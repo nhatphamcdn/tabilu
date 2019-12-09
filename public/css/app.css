@@ -20467,7 +20467,7 @@ body.trumbowyg-body-fullscreen {
 }
 
 select.form-control:not([size]):not([multiple]) {
-  height: calc(4.25rem + 2px);
+  height: 3.25rem;
 }
 
 select.form-control:focus::-ms-value {

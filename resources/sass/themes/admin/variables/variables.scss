@@ -445,6 +445,7 @@ $input-height-border:                   $input-border-width * 2;
 
 $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2);
 $input-height:                          calc(#{$input-height-inner} + #{$input-height-border});
+$select-height:                         3.25rem;
 
 $input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2);
 $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border});

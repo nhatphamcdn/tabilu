@@ -59,7 +59,7 @@ const constant = {
          $('.preloader').fadeOut(100, function(){
           actionLoader(true);
         });
-      }, 100);
+      }, 90);
     } else {
       actionLoader(true);
     }

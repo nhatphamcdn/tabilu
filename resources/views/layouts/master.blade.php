@@ -6,13 +6,16 @@
 
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}" data-instant-track>
+		<meta name="keywords" content="111">
 
 		<title>{{ config('app.name', 'Tabilu') }} {{ __(' | ') }} @yield('metaTitle')</title>
 
 		<link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
+		<link href="#" id="yield-link" rel="stylesheet">
 		@stack('css')
 	</head>
-	<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+	<body id="d-none" class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar">
+		<input type="hidden" value=@yield('css_link') id="yield_css" />
 		{{-- Include Preloader --}}
 		@include('layouts._partials.preloader')
 		{{-- End Include Preloader --}}

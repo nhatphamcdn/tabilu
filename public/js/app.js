@@ -16558,6 +16558,8 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -16567,7 +16569,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! trumbowyg */ "./node_modules/trumbowyg/dist/trumbowyg.js");
 
-__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js"); // Define selectize
+__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js"); // Loading Indicator Start
+
+
+var actionLoader = function actionLoader(action) {
+  if (action) {
+    $('.preloader').hide();
+    $('.body-content').css('opacity', 1);
+  } else {
+    $('.preloader').show();
+    $('.body-content').css('opacity', 0);
+  }
+}; // Define selectize
 
 
 var constant = {
@@ -16598,25 +16611,41 @@ var constant = {
     $('.editor').trumbowyg({
       svgPath: '/img/icons/trumbowyg/icons.svg'
     });
+  },
+  _loadStyle: function _loadStyle() {
+    actionLoader(false);
+    var $link = $('#yield_css').val();
+
+    if ($link && _typeof($link) !== undefined) {
+      $('#yield-link').attr('href', $link);
+      setTimeout(function () {
+        $('.preloader').fadeOut(100, function () {
+          actionLoader(true);
+        });
+      }, 100);
+    } else {
+      actionLoader(true);
+    }
   }
 }; // End Define selectize
-// Loading Indicator Start
-
-var actionLoader = function actionLoader() {
-  $('.preloader').hide();
-  $('.body-content').css('opacity', 1);
-};
 
 window.onload = function () {
   $('.preloader').fadeOut(100, function () {
-    actionLoader();
+    actionLoader(true);
   });
 }; // End Loading Indicator
 // Document is ready
 
 
 $(document).ready(function () {
-  // Init Trumbowyg Editor
+  var $link = $('#yield_css').val();
+
+  if ($link && _typeof($link) !== undefined) {
+    // Load style
+    constant._loadStyle();
+  } // Init Trumbowyg Editor
+
+
   constant._initTrumbowyg(); // Init selectize
 
 
@@ -16624,7 +16653,8 @@ $(document).ready(function () {
 }); // Instant click handle
 
 InstantClick.on('change', function () {
-  actionLoader();
+  // Load style
+  constant._loadStyle();
 });
 
 /***/ }),

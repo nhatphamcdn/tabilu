@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/login.css": "/css/login.css",
     "/css/app.css": "/css/app.css",
     "/css/preloader.css": "/css/preloader.css",
-    "/img/icons/trumbowyg/icons.svg": "/img/icons/trumbowyg/icons.svg",
-    "/css/login.css": "/css/login.css"
+    "/img/icons/trumbowyg/icons.svg": "/img/icons/trumbowyg/icons.svg"
 }

@@ -1,25 +1,12 @@
 @extends('layouts.master')
 
-{{-- Style import --}}
-@push('css')
-    <link rel="stylesheet" href="{{ asset('/css/login.css') }}" />
-@endpush
-{{-- End Style import --}}
+@section('css_link', asset('/css/login.css'))
+
+{{-- Set Meta Title --}}
+@section('metaTitle', 'Login')
+{{-- End Set Meta Title --}}
 
 @section('body')
-{{-- <div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card--login">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 <section id="auth" class="auth">
     <div class="main">
         <div class="container">

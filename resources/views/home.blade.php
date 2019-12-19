@@ -1,23 +1,33 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+@section('metaTitle', 'Landing Tapilu')
+
+@section('css_link', asset('/css/welcome.css'))
+
+@section('body')
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+            <div class="top-right links">
+                @auth
+                    <a href="{{ url('/') }}">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">Register</a>
                     @endif
+                @endauth
+            </div>
+        @endif
 
-                    You are logged in!
-                </div>
+        <div class="content">
+            <div class="title m-b-md">
+                <h1>
+                    <strong>{{ __('TABILU') }}</strong>
+                </h1>
+                <span>{{__('LANDING IS COMMING SOON.')}}</span>
             </div>
         </div>
     </div>
-</div>
 @endsection

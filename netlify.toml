@@ -1,0 +1,5 @@
+[build]
+PHP_VERSION=7.2
+
+command = "composer install --optimize-autoloader --no-dev && php artisan config:cache && php artisan route:cache"
+publish = "public"

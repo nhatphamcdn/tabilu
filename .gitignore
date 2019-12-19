@@ -1,4 +1,5 @@
 /node_modules
+/public/template-admin
 /public/hot
 /public/storage
 /storage/*.key
@@ -10,3 +11,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+# Local Netlify folder
+.netlify

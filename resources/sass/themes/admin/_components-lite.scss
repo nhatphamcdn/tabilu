@@ -34,5 +34,8 @@
 // Plugins
 // ------------------------------
 @import "plugins/ui/breakpoints";
+@import "~trumbowyg/dist/ui/sass/trumbowyg";
+@import url("~selectize/dist/css/selectize.css");
+@import url("~selectize/dist/css/selectize.default.css");
 
 @import "components/lite-css";

@@ -1,0 +1,18 @@
+$trumbowyg: ".trumbowyg";
+
+#{$trumbowyg}-box {
+  margin: 0 auto;
+
+  &#{$trumbowyg}-editor-hidden {
+    #{$trumbowyg}-textarea {
+      border-radius: 0;
+      border: 0;
+    }
+  }
+}
+
+.is-invalid {
+  #{$trumbowyg}-box {
+    border-color: $danger;
+  }
+}

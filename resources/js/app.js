@@ -5,28 +5,91 @@
  */
 
 require('./bootstrap');
+require('trumbowyg');
+require('selectize');
 
-window.Vue = require('vue');
+// Loading Indicator Start
+const actionLoader = (action) => {
+  if(action) {
+  $('.preloader').hide();
+  $('.body-content').css('opacity', 1);
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+  } else {
+    $('.preloader').show();
+    $('.body-content').css('opacity', 0);
+  }
+};
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Define selectize
+const constant = {
+  _initSelectize: function() {
+    $('#select-hashtag').selectize({
+      plugins: ['remove_button'],
+      persist: false,
+      maxItems: null,
+      valueField: 'name',
+      labelField: 'name',
+      searchField: ['name'],
+      options: [
+        {name: 'Shoe'},
+        {name: 'Box'},
+        {name: 'Tist'}
+      ],
+      create: function(input) {
+        return {
+          name: input
+        };
+      }
+    });
+  },
+  _initTrumbowyg: function() {
+    $('.editor').trumbowyg({
+      svgPath: '/img/icons/trumbowyg/icons.svg'
+    });
+  },
+  _loadStyle: function() {
+    actionLoader(false);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+    const $link = $('#yield_css').val();
+    if($link && typeof $link !== undefined) {
+      $('#yield-link').attr('href', $link);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+      setTimeout(() => {
+         $('.preloader').fadeOut(100, function(){
+          actionLoader(true);
+        });
+      }, 300);
+    } else {
+      actionLoader(true);
+    }
+  }
+}
+// End Define selectize
 
-const app = new Vue({
-    el: '#app',
+window.onload = function () {
+  $('.preloader').fadeOut(100, function(){
+    actionLoader(true);
+  });
+};
+// End Loading Indicator
+
+
+// Document is ready
+$(document).ready(function() {
+  const $link = $('#yield_css').val();
+  if($link && typeof $link !== undefined) {
+    // Load style
+    constant._loadStyle();
+  }
+
+  // Init Trumbowyg Editor
+  constant._initTrumbowyg();
+  // Init selectize
+  constant._initSelectize();
+});
+
+// Instant click handle
+InstantClick.on('change', function() {
+  // Load style
+  constant._loadStyle();
 });

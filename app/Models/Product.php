@@ -21,7 +21,6 @@ class Product extends Model
         'content',
         'price',
         'share_price',
-        'point',
         'status'
     ];
 
@@ -38,5 +37,16 @@ class Product extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Set post by.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPostByAttribute($value)
+    {
+        $this->attributes['post_by'] = auth()->user()->id;
     }
 }

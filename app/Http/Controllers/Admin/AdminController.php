@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -14,16 +13,16 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();
     }
 
     /**
-     * show dashboard.
+     * Render admin view.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
-        return view('dashboards.index');
+        return view('admins.index');
     }
 }

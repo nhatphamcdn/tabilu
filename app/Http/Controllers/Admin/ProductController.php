@@ -4,17 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
+use App\Constracts\ProductRepositoryInterface;
 
 class ProductController extends BaseController
 {
+    /**
+     * @var $model
+     */
+    private $product;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ProductRepositoryInterface $product)
     {
         parent::__construct();
+
+        $this->product = $product;
     }
 
     /**
@@ -41,6 +49,6 @@ class ProductController extends BaseController
      * @return void
      */
     public function store(StoreProductRequest $request) {
-        dd($request->all());
+        $this->product->create($request->all());
     } 
 }

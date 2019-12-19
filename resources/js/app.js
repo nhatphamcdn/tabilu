@@ -30,7 +30,6 @@ const constant = {
       valueField: 'name',
       labelField: 'name',
       searchField: ['name'],
-      items: ['Shoe', 'Box'],
       options: [
         {name: 'Shoe'},
         {name: 'Box'},
@@ -59,7 +58,7 @@ const constant = {
          $('.preloader').fadeOut(100, function(){
           actionLoader(true);
         });
-      }, 90);
+      }, 300);
     } else {
       actionLoader(true);
     }

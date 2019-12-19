@@ -1,17 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use App\Traits\GenerateUuid;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
-    use Notifiable;
-    use GenerateUuid;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -31,18 +26,15 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * Check curren admin auth is the root
+     * 
+     * @return boolean
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-    
-    /**
-     * The attribute to be used for storing the uuids.
-     *
-     * @var string
-     */
-    public $uuid_field = 'user_ref';
+    public function isRoot() {
+        if($this->is_root === 1) {
+            return true;
+        }
+
+        return false;
+    }
 }

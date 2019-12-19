@@ -25,6 +25,12 @@
 				<span class="menu-title">Admin</span>
 			</a>
 		</li>
+		<li class="{{ request()->routeIs('admin.logs*') ? 'active' : '' }}">
+			<a href="{{ route('admin.logs') }}">
+				<i class="la la-bug"></i>
+				<span class="menu-title">Log viewer</span>
+			</a>
+		</li>
 		@endif
 	</ul>
 </div>

@@ -35,7 +35,7 @@
                                                     id="name"
                                                     name="name"
                                                     value="{{ old('name') }}"
-                                                    {{-- required --}}
+                                                    required
                                                     autocomplete="name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -53,7 +53,13 @@
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">VND</div>
                                                         </div>
-                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                        <input type="text" 
+                                                                class="form-control"
+                                                                id="price"
+                                                                name="{{ old('price') ?? 0 }}"
+                                                                placeholder="100.000"
+                                                                required
+                                                                pattern="\d[0-9]{1,5}">
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -66,7 +72,13 @@
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">VND</div>
                                                         </div>
-                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                        <input type="text"
+                                                                class="form-control"
+                                                                id="price"
+                                                                name="sale_price"
+                                                                value="{{ old('sale_price') ?? 0 }}"
+                                                                placeholder="100.000"
+                                                                pattern="\d[0-9]{0,5}">
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -79,7 +91,13 @@
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">VND</div>
                                                         </div>
-                                                        <input type="text" class="form-control" id="price" placeholder="100.000">
+                                                        <input type="text"
+                                                                class="form-control"
+                                                                id="price"
+                                                                name="share_price"
+                                                                value="{{ old('share_price') ?? 0 }}"
+                                                                placeholder="100.000"
+                                                                pattern="\d[0-9]{0,5}">
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -91,6 +109,7 @@
                                             <textarea class="form-control editor"
                                                         id="content"
                                                         name="content"
+                                                        required
                                                         rows="3"></textarea>
 
                                             @error('content')
@@ -129,13 +148,7 @@
                                     <div class="field-group">
                                         <h5 class="mt-2">{{ __('# HashTags') }}</h5>
                                         <fieldset class="form-group">
-                                             {{-- <input type="text"
-                                                    id="input-tags"
-                                                    name="hashtag"
-                                                    placeholder="shoe,box..."
-                                                    value="{{ old('hashtag') }}"
-                                                    autocomplete="hashtag"> --}}
-                                            <select id="select-hashtag" placeholder="shoe,box..."></select>
+                                            <select name="hashtag[]" id="select-hashtag" placeholder="shoe,box..."></select>
                                         </fieldset>
                                     </div>
 

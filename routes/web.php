@@ -22,11 +22,17 @@ define('ADMIN_CONTROLLER', 'Admin\AdminController');
 define('ADMIN_CONTROLLER_DASHBOARD', 'Admin\DashboardController');
 define('ADMIN_CONTROLLER_PRODUCT', 'Admin\ProductController');
 define('ADMIN_CONTROLLER_USER', 'Admin\UserController');
+define('ADMIN_CONTROLLER_LOG', 'Admin\LogController');
 
 
 // Admin Group Routes...
 Route::prefix('admin')->group(function() {
+    // Auth Routes
     Auth::routes(['register' => false, 'verify' => false]);
+
+    // Log viewer
+    Route::get('/log-viewer', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('/logs', ADMIN_CONTROLLER_LOG . '@index')->name('admin.logs');
 
     // Dasboard Routes...
     Route::get('/', ADMIN_CONTROLLER_DASHBOARD . '@index')->name('admin.dashboard');

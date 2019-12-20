@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/upload-custom.js', 'public/js')
    .sass('resources/sass/login.scss', 'public/css')
    .sass('resources/sass/app.scss', 'public/css')
    .sass('resources/sass/preloader.scss', 'public/css')

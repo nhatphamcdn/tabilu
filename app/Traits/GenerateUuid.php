@@ -13,7 +13,7 @@ trait GenerateUuid
         parent::boot();
         static::creating(function ($model) {
             if (! $model->getKey()) {
-            $model->{$model->uuid_field} = (string) Str::uuid();
+                $model->{$model->uuid_field} = (string) Str::uuid();
             }
         });
     }

@@ -38,7 +38,7 @@ html {
             backface-visibility: hidden;
             min-height: calc(100% - 32px);
             &.app-content{
-                overflow: hidden;
+                // overflow: hidden;
             }
             .content-wrapper {
                 padding: 2.2rem;
@@ -109,6 +109,12 @@ html {
             }
         }
 
+    }
+}
+
+.match-height {
+    .sticky-top {
+        top: 80px;
     }
 }
 

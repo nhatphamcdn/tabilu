@@ -40,6 +40,9 @@ class ProductController extends BaseController
      * @return void
      */
     public function create() {
+        // $image = Cloudder::secureShow('products/tmp/phpMF18H7');
+
+        // dd($image);
         return view('products.create');
     }
 
@@ -49,6 +52,23 @@ class ProductController extends BaseController
      * @return void
      */
     public function store(StoreProductRequest $request) {
-        $this->product->create($request->all());
+        $data = $request->only([
+            'name',
+            'price',
+            'sale_price',
+            'share_price',
+            'content',
+            'hashtag',
+            'status',
+            'images',
+        ]);
+
+        // try {
+            $this->product->create($data);
+        // } catch(\Exception $e) {
+        //     return redirect()->back()->with('fails', $e);
+        // }
+
+        return redirect()->back()->with('success', 'Create product successfuly! Good job.');
     } 
 }

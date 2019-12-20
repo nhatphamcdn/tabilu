@@ -3,5 +3,6 @@
     "/css/login.css": "/css/login.css",
     "/css/app.css": "/css/app.css",
     "/css/preloader.css": "/css/preloader.css",
+    "/js/upload-custom.js": "/js/upload-custom.js",
     "/img/icons/trumbowyg/icons.svg": "/img/icons/trumbowyg/icons.svg"
 }

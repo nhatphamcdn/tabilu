@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\GenerateUuid;
 
 class Product extends Model
 {
     use SoftDeletes;
+    use GenerateUuid;
 
     /**
      * The attributes that are mass assignable.
@@ -15,13 +17,14 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'product_ref',
         'name',
         'slug',
         'content',
         'price',
+        'sale_price',
         'share_price',
-        'status'
+        'status',
+        'post_by',
     ];
 
     /**
@@ -32,21 +35,25 @@ class Product extends Model
     protected $dates = ['deleted_at'];
     
     /**
+     * The attribute to be used for storing the uuids.
+     *
+     * @var string
+     */
+    public $uuid_field = 'product_ref';
+    
+    /**
      * Get all of the tags for the product.
      */
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
-
+    
     /**
-     * Set post by.
-     *
-     * @param  string  $value
-     * @return void
+     * Get all of the images for the product.
      */
-    public function setPostByAttribute($value)
+    public function images()
     {
-        $this->attributes['post_by'] = auth()->user()->id;
+        return $this->hasMany(ProductImage::class);
     }
 }

@@ -27,9 +27,10 @@ class StoreProductRequest extends FormRequest
         $this->slug = Str::slug($this->name);
 
         return [
-            'name' => 'required|max:90',
+            'name' => 'required|max:90|unique:products',
             'slug' => 'max:255|unique:products',
             'content' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
         ];
     }
 }

@@ -63,11 +63,11 @@ class ProductController extends BaseController
             'images',
         ]);
 
-        // try {
+        try {
             $this->product->create($data);
-        // } catch(\Exception $e) {
-        //     return redirect()->back()->with('fails', $e);
-        // }
+        } catch(\Exception $e) {
+            return redirect()->back()->with('fails', 'Create product fails! Try again.');
+        }
 
         return redirect()->back()->with('success', 'Create product successfuly! Good job.');
     } 

@@ -40,9 +40,6 @@ class ProductController extends BaseController
      * @return void
      */
     public function create() {
-        // $image = Cloudder::secureShow('products/tmp/phpMF18H7');
-
-        // dd($image);
         return view('products.create');
     }
 

@@ -14,6 +14,10 @@ Route::prefix('admin')->group(function() {
     // Dasboard Routes...
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
     
+
+    // Tags Routes...
+    Route::post('/tags/create', 'Admin\TagController@store')->name('admin.tags.store');
+    
     // Products Routes...
     Route::get('/products', 'Admin\ProductController@index')->name('admin.products');
     Route::get('/products/create', 'Admin\ProductController@create')->name('admin.products.create');

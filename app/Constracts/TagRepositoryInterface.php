@@ -5,11 +5,7 @@ namespace App\Constracts;
 interface TagRepositoryInterface
 {
     /**
-     * Create data
-     * 
-     * @param array $data
-     * 
-     * @return Collection
+     * Get all items
      */
-    public function create(array $data);
+    public function all();
 }

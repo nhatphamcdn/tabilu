@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Constracts\ProductRepositoryInterface;
 use App\Repositories\ProductRepository;
+use App\Constracts\TagRepositoryInterface;
+use App\Repositories\TagRepository;
 
 class RepositoriesProvider extends ServiceProvider
 {
@@ -16,5 +18,6 @@ class RepositoriesProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->singleton(TagRepositoryInterface::class, TagRepository::class);
     }
 }

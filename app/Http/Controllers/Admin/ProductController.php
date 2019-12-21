@@ -9,7 +9,9 @@ use App\Constracts\ProductRepositoryInterface;
 class ProductController extends BaseController
 {
     /**
-     * @var $model
+     * The product repository implementation.
+     *
+     * @var ProductRepositoryInterface
      */
     private $product;
 
@@ -22,6 +24,7 @@ class ProductController extends BaseController
     {
         parent::__construct();
 
+        // Dependencies automatically resolved by service container...
         $this->product = $product;
     }
 
@@ -55,7 +58,7 @@ class ProductController extends BaseController
             'sale_price',
             'share_price',
             'content',
-            'hashtag',
+            'tags',
             'status',
             'images',
         ]);

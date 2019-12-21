@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Str;
 
-class StoreProductRequest extends FormRequest
+class StoreTagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +23,9 @@ class StoreProductRequest extends FormRequest
      */
     public function rules()
     {
-        $this->slug = Str::slug($this->name);
-
         return [
-            'name' => 'required|max:90|unique:products',
-            'slug' => 'max:255|unique:products',
-            'content' => 'required',
-            'price' => 'numeric',
-            'sale_price' => 'numeric',
-            'share_price' => 'numeric',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
+            'name' => 'required|max:90|unique:tags',
+            'slug' => 'max:255|unique:tags',
         ];
     }
 }

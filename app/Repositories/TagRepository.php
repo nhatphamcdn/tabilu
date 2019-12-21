@@ -17,16 +17,11 @@ class TagRepository extends Repository implements TagRepositoryInterface
     }
 
     /**
-     * @Override ${`create`} method in Repository
+     * @Override ${`all`} method in Repository
      * 
-     * @param array $data
-     * @param $id
-     * 
-     * @return Product
+     * @return Tag
      */
-    public function create(array $data)
-    {
-        // dd($this->model);
-        dd($data);
+    public function all() {
+        return $this->model->select('id', 'name', 'slug')->cursor();
     }
 }

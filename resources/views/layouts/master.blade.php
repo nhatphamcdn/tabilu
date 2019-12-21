@@ -21,6 +21,8 @@
 			@yield('body')
 		</div>
 
+		@stack('variables')
+		
 		{{-- Import Javascript --}}
 		<script src="{{ asset('/js/instantclick.min.js') }}" data-no-instant></script>
 		<script data-no-instant>InstantClick.init();</script>
@@ -28,5 +30,6 @@
     <script src="{{ asset('/js/image-uploader.js') }}" data-instant-track></script>
 		<script src="{{ asset('/js/upload-custom.js') }}" data-instant-track></script>
 		{{-- End Import Javascript --}}
+
 	</body>
 </html>

@@ -27,18 +27,29 @@ const constant = {
       plugins: ['remove_button'],
       persist: false,
       maxItems: null,
-      valueField: 'name',
+      valueField: 'id',
       labelField: 'name',
       searchField: ['name'],
-      options: [
-        {name: 'Shoe'},
-        {name: 'Box'},
-        {name: 'Tist'}
-      ],
-      create: function(input) {
-        return {
-          name: input
-        };
+      options: hashtags,
+      create: function(input, callback) {
+        $('#select-hashtag').closest('.form-group').find('.invalid-feedback').remove();
+        
+        $.ajax({
+          url: tagsLink,
+          type: 'POST',
+          data: { name: input, slug: input },
+          success: function (result) {
+            if (result) {
+              callback({ id: result.id, name: result.name });
+            }
+          },
+          error: function(response) {
+            $('#select-hashtag').closest('.form-group')
+              .append('<span class="invalid-feedback d-block" role="alert">' + response.responseJSON.message + '</span>')
+            
+            callback(hashtags);
+          }
+        });
       }
     });
   },

@@ -35,14 +35,20 @@
 											<div class="input-group-prepend">
 												<div class="input-group-text">VND</div>
 											</div>
-											<input type="text" 
-													class="form-control"
+											<input type="number" 
+													class="form-control @error('price') is-invalid @enderror"
 													id="price"
 													name="price"
 													placeholder="100.000"
 													value="{{ old('price') ?? 0 }}"
 													required
 													pattern="\d[0-9]{1,5}">
+													
+											@error('price')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 									</fieldset>
 								</div>
@@ -50,18 +56,24 @@
 							<div class="col-md-4">
 								<div class="field-group">
 									<h5 class="mt-2">{{ __('Sale Price') }}</h5>
-									<fieldset class="form-group">
+									<fieldset class="form-group @error('sale_price') is-invalid @enderror">
 										<div class="input-group mb-2 mr-sm-2">
 											<div class="input-group-prepend">
 												<div class="input-group-text">VND</div>
 											</div>
-											<input type="text"
+											<input type="number"
 													class="form-control"
-													id="price"
+													id="sale_price"
 													name="sale_price"
 													value="{{ old('sale_price') ?? 0 }}"
 													placeholder="100.000"
 													pattern="\d[0-9]{0,5}">
+
+											@error('sale_price')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 									</fieldset>
 								</div>
@@ -74,13 +86,19 @@
 											<div class="input-group-prepend">
 												<div class="input-group-text">VND</div>
 											</div>
-											<input type="text"
-													class="form-control"
-													id="price"
+											<input type="number"
+													class="form-control @error('share_price') is-invalid @enderror"
+													id="share_price"
 													name="share_price"
 													value="{{ old('share_price') ?? 0 }}"
 													placeholder="100.000"
 													pattern="\d[0-9]{0,5}">
+
+											@error('share_price')
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+												</span>
+											@enderror
 										</div>
 									</fieldset>
 								</div>
@@ -139,10 +157,10 @@
 							<div class="field-group">
 								<h5 class="mt-2">{{ __('#HashTags') }}</h5>
 								<fieldset class="form-group">
-									<select name="hashtag[]" id="select-hashtag" multiple="multiple" placeholder="shoe,box...">
-										@if(old('hashtag'))
-											@foreach(old('hashtag') as $hashtag)
-											<option value="{{ $hashtag }}" selected>{{ $hashtag }}</option>
+									<select name="tags[]" id="select-hashtag" multiple="multiple" placeholder="shoe,box...">
+										@if(old('tags'))
+											@foreach(old('tags') as $tag)
+											<option value="{{ $tag }}" selected>{{ $tag }}</option>
 											@endforeach
 										@endif
 									</select>
@@ -170,3 +188,11 @@
 		{{-- End Setting Form --}}
 	</div>
 </form>
+
+
+@prepend('variables')
+<script>
+	var hashtags = @json($tags, JSON_PRETTY_PRINT);
+	var tagsLink = "{{ route('admin.tags.store') }}";
+</script>
+@endpush

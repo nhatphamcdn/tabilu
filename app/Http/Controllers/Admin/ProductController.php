@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreProductRequest;
 use App\Constracts\ProductRepositoryInterface;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends BaseController
 {
@@ -29,29 +28,32 @@ class ProductController extends BaseController
     }
 
     /**
-     * Render view management product
-     * 
+     * Render view management product.
+     *
      * @return void
      */
-    public function index() {
+    public function index()
+    {
         return view('products.index');
-    } 
+    }
 
     /**
-     * Render view create product form
-     * 
+     * Render view create product form.
+     *
      * @return void
      */
-    public function create() {
+    public function create()
+    {
         return view('products.create');
     }
 
     /**
-     * Store data product form
-     * 
+     * Store data product form.
+     *
      * @return void
      */
-    public function store(StoreProductRequest $request) {
+    public function store(StoreProductRequest $request)
+    {
         $data = $request->only([
             'name',
             'price',
@@ -65,10 +67,10 @@ class ProductController extends BaseController
 
         try {
             $this->product->create($data);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('fails', 'Create product fails! Try again.');
         }
 
         return redirect()->back()->with('success', 'Create product successfuly! Good job.');
-    } 
+    }
 }

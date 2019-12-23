@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
@@ -26,12 +25,13 @@ class Admin extends Authenticatable
     ];
 
     /**
-     * Check curren admin auth is the root
-     * 
-     * @return boolean
+     * Check curren admin auth is the root.
+     *
+     * @return bool
      */
-    public function isRoot() {
-        if($this->is_root === 1) {
+    public function isRoot()
+    {
+        if ($this->is_root === 1) {
             return true;
         }
 

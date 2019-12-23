@@ -16,7 +16,7 @@ class ProductImage extends Model
         'path',
         'order',
     ];
-    
+
     /**
      * Get the product of the image.
      */

@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\TagComposer;
 use Illuminate\Support\ServiceProvider;
 use View;
-use App\Http\View\Composers\TagComposer;
 
 class ViewServiceProvider extends ServiceProvider
 {

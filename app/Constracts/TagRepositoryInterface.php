@@ -5,7 +5,7 @@ namespace App\Constracts;
 interface TagRepositoryInterface
 {
     /**
-     * Get all items
+     * Get all items.
      */
     public function all();
 }

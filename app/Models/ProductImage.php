@@ -16,7 +16,7 @@ class ProductImage extends Model
         'path',
         'order',
     ];
-    
+
     /**
      * Get the product of the image.
      */
@@ -25,6 +25,11 @@ class ProductImage extends Model
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * Mutator get resolve Path attribute
+     *
+     * @param $value
+     */
     public function getPathAttribute($value)
     {
         return asset('/product-images/' . $value);

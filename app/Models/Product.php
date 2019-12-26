@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\GenerateUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\GenerateUuid;
 
 class Product extends Model
 {
@@ -33,14 +33,14 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    
+
     /**
      * The attribute to be used for storing the uuids.
      *
      * @var string
      */
     public $uuid_field = 'product_ref';
-    
+
     /**
      * Eager loading relation
      * 
@@ -55,7 +55,7 @@ class Product extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
-    
+
     /**
      * Get all of the images for the product.
      */

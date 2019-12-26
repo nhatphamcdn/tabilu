@@ -20,6 +20,11 @@
                                         <h3>{{ __('Log In To Your Account') }}</h3>
                                     </div>
                                     @csrf
+
+                                    @if (session('error'))
+                                        <div class="alert alert-danger" role="alert">{{ session('error') }}</div>
+                                    @endif
+                                    
                                     <div class="form-group row">
                                         <label for="email" class="py-2 col-md-12 col-form-label">{{ __('E-Mail Address') }}</label>
                                         <div class="col-md-12">

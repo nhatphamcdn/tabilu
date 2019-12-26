@@ -6,8 +6,19 @@ interface RepositoriesInterface
 {
     /**
      * Get all items
+     * 
+     * @param array $select
      */
-    public function all();
+    public function all(array $select);
+
+    /**
+     * Get pagination items
+     * 
+     * @param integer $pageNumber
+     * 
+     * @return Collection
+     */
+    public function paginate(integer $pageNumber);
 
     /**
      * Get a item by ID
@@ -16,7 +27,7 @@ interface RepositoriesInterface
      * 
      * @return Collection or null
      */
-    public function show($id);
+    public function find($id);
 
     /**
      * Create data

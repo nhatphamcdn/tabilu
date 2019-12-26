@@ -17,6 +17,37 @@
             </div>
         </div>
     </div>
+
+    <div class="content-body pt-3">
+        @foreach($products as $product)
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <span class="font-weight-bold">{{ __('Ref: ') }}</span>
+                            <span>{{ $product->product_ref }}</span>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="actions text-right">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="la la-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-danger">
+                                    <i class="la la-trash-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="font-weight-bold">{{ __('Tags: ') }}</span>
+                    @foreach($product->tags as $tag)
+                        <span class="badge badge-sm badge-primary">{{ $tag->name }}</span>
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
 @endsection
 {{-- End Body Content --}}

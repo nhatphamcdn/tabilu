@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\EditProductRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Constracts\ProductRepositoryInterface;
 
@@ -34,7 +35,11 @@ class ProductController extends BaseController
      * @return void
      */
     public function index() {
-        return view('products.index');
+        $products = $this->product->all();
+
+        return view('products.index')->with([
+            'products' => $products
+        ]);
     } 
 
     /**
@@ -69,6 +74,51 @@ class ProductController extends BaseController
             return redirect()->back()->with('fails', 'Create product fails! Try again.');
         }
 
-        return redirect()->back()->with('success', 'Create product successfuly! Good job.');
-    } 
+        return redirect()->back()->with('success', 'Created product successfuly! Good job.');
+    }
+
+    /**
+     * Render view edit product form
+     * 
+     * @return void
+     */
+    public function edit($id) {
+        $product = $this->product->find($id);
+        
+        return view('products.edit')->with([
+            'product' => $product
+        ]);
+    }
+
+    /**
+     * Update product by id
+     * 
+     * @param EditProductRequest $request
+     * @param $id
+     * 
+     * @return void
+     */
+    public function update($id, EditProductRequest $request) {
+        $data = $request->only([
+            'name',
+            'price',
+            'sale_price',
+            'share_price',
+            'content',
+            'tags',
+            'status',
+            'images',
+            'edit_images',
+        ]);
+
+        // try {
+        //     $this->product->create($data);
+        // } catch(\Exception $e) {
+        //     return redirect()->back()->with('fails', 'Create product fails! Try again.');
+        // }
+
+        $this->product->update($data, $id);
+        return redirect()->back()->with('success', 'Updated product successfuly! Good job.');
+    }
+
 }

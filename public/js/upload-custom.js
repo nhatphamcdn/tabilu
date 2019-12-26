@@ -93,8 +93,13 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function initLoaderImage() {
-  var preloaded = [];
+function initLoaderImage(productImages) {
+  var preloaded = productImages.map(function (v) {
+    return {
+      id: v.id,
+      src: v.path
+    };
+  });
   $('.input-images').imageUploader({
     preloaded: preloaded,
     imagesInputName: 'images',
@@ -103,7 +108,7 @@ function initLoaderImage() {
 }
 
 $(document).ready(function () {
-  initLoaderImage();
+  initLoaderImage(productImages);
 });
 
 /***/ }),

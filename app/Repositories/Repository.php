@@ -21,9 +21,20 @@ class Repository implements RepositoriesInterface
 
     /**
      * Implement interface ${`Get all items`}
+     * 
+     * @param array $select
+     * 
+     * return LazyCollection
      */
-    public function all() {
-        return $this->model->cursor();
+    public function all(array $select = ['*']) {
+        return $this->model->select($select)->get();
+    }
+
+    /**
+     * Implement interface ${`Get paginate`}
+     */
+    public function paginate($pageNumber = 10) {
+        return $this->model->paginate($pageNumber);
     }
 
     /**
@@ -31,9 +42,9 @@ class Repository implements RepositoriesInterface
      * 
      * @param $id
      * 
-     * @return Collection or null
+     * @return Collection or fails
      */
-    public function show($id)
+    public function find($id)
     {
         return $this->model->findOrFail($id);
     }

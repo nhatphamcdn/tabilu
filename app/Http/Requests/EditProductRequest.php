@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Str;
 
 class EditProductRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class EditProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,16 @@ class EditProductRequest extends FormRequest
      */
     public function rules()
     {
+        $this->slug = Str::slug($this->name);
+
         return [
-            //
+            'name' => 'required|max:90|unique:products,name,' . $this->id,
+            'slug' => 'max:255|unique:products,slug,' . $this->id,
+            'content' => 'required',
+            'price' => 'numeric',
+            'sale_price' => 'numeric',
+            'share_price' => 'numeric',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
         ];
     }
 }

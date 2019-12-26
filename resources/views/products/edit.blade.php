@@ -7,13 +7,16 @@
 {{-- Body Content --}}
 @section('content')
 <div class="content-wrapper">
-    @include('products._partials.header', ['title' => 'Add new a product'])
+    @include('products._partials.header', ['title' => 'Edit product'])
 
     <div class="content-body pt-3">
         @include('products._partials.notify')
 
         <section class="textarea-select">
-            @include('products._partials.form', ['action' => route('admin.products.store')])
+            @include('products._partials.form', [
+                'action'    => route('admin.products.update', $product->id),
+                'product'   => $product
+            ])
         </section>
     </div>
 </div>

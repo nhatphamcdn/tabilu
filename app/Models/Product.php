@@ -42,6 +42,13 @@ class Product extends Model
     public $uuid_field = 'product_ref';
     
     /**
+     * Eager loading relation
+     * 
+     * @var array $with
+     */
+    protected $with = ['tags', 'images:product_id,id,path,order']; 
+
+    /**
      * Get all of the tags for the product.
      */
     public function tags()

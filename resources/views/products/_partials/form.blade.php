@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ $action ?? null }}" enctype="multipart/form-data">
 	@csrf
 	<div class="row match-height">
 		<!-- Start General Form -->
@@ -16,7 +16,7 @@
 										class="form-control @error('name') is-invalid @enderror"
 										id="name"
 										name="name"
-										value="{{ old('name') }}"
+										value="{{ old('name', $product->name ?? null) }}"
 										required
 										autocomplete="name">
 								@error('name')
@@ -40,7 +40,7 @@
 													id="price"
 													name="price"
 													placeholder="100.000"
-													value="{{ old('price') ?? 0 }}"
+													value="{{ old('price', $product->price ?? 0) }}"
 													required
 													pattern="\d[0-9]{1,5}">
 													
@@ -65,7 +65,7 @@
 													class="form-control"
 													id="sale_price"
 													name="sale_price"
-													value="{{ old('sale_price') ?? 0 }}"
+													value="{{ old('sale_price', $product->sale_price ?? 0) }}"
 													placeholder="100.000"
 													pattern="\d[0-9]{0,5}">
 
@@ -90,7 +90,7 @@
 													class="form-control @error('share_price') is-invalid @enderror"
 													id="share_price"
 													name="share_price"
-													value="{{ old('share_price') ?? 0 }}"
+													value="{{ old('share_price', $product->share_price ?? 0) }}"
 													placeholder="100.000"
 													pattern="\d[0-9]{0,5}">
 
@@ -111,7 +111,7 @@
 											id="content"
 											name="content"
 											required
-											rows="3">{{ old('share_price') ?? null }}</textarea>
+											rows="3">{{ old('content', $product->content ?? null) }}</textarea>
 
 								@error('content')
 									<span class="invalid-feedback d-block" role="alert">
@@ -158,11 +158,9 @@
 								<h5 class="mt-2">{{ __('#HashTags') }}</h5>
 								<fieldset class="form-group">
 									<select name="tags[]" id="select-hashtag" multiple="multiple" placeholder="shoe,box...">
-										@if(old('tags'))
-											@foreach(old('tags') as $tag)
-											<option value="{{ $tag }}" selected>{{ $tag }}</option>
-											@endforeach
-										@endif
+										@foreach(old('tags', $product->tags ?? []) as $tag)
+										<option value="{{ $tag->id ?? $tag }}" selected>{{ $tag->name ?? $tag }}</option>
+										@endforeach
 									</select>
 								</fieldset>
 							</div>
@@ -171,8 +169,8 @@
 								<h5 class="mt-2">{{ __('Status') }}</h5>
 								<fieldset class="form-group">
 									<select class="form-control" id="Status" name="status">
-										<option value="available" {{ old('status') && old('status') === "available" ? 'selected' : null }}>{{ __('Available') }}</option>
-										<option value="unavailable" {{ old('status') && old('status') === "unavailable" ? 'selected' : null }}>{{ __('Unavailable') }}</option>
+										<option value="available" {{ old('status', $product->status ?? null) === "available" ? 'selected' : null }}>{{ __('Available') }}</option>
+										<option value="unavailable" {{ old('status', $product->status ?? null) === "unavailable" ? 'selected' : null }}>{{ __('Unavailable') }}</option>
 									</select>
 								</fieldset>
 							</div>
@@ -193,6 +191,7 @@
 @prepend('variables')
 <script>
 	var hashtags = @json($tags, JSON_PRETTY_PRINT);
+	var productImages = @json($product->images ?? [], JSON_PRETTY_PRINT);
 	var tagsLink = "{{ route('admin.tags.store') }}";
 </script>
 @endpush

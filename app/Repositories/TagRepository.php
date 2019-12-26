@@ -22,6 +22,6 @@ class TagRepository extends Repository implements TagRepositoryInterface
      * @return Tag
      */
     public function all(array $select = ['*']) {
-        return $this->model->select($select)->cursor();
+        return $this->model->select($select)->get();
     }
 }

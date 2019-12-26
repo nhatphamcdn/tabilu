@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Constracts\ProductRepositoryInterface;
 use App\Http\Requests\EditProductRequest;
 use App\Http\Requests\StoreProductRequest;
-use App\Constracts\ProductRepositoryInterface;
+use Illuminate\Http\Request;
 
 class ProductController extends BaseController
 {
@@ -30,33 +30,36 @@ class ProductController extends BaseController
     }
 
     /**
-     * Render view management product
-     * 
+     * Render view management product.
+     *
      * @return void
      */
-    public function index() {
+    public function index()
+    {
         $products = $this->product->all();
 
         return view('products.index')->with([
-            'products' => $products
+            'products' => $products,
         ]);
-    } 
+    }
 
     /**
-     * Render view create product form
-     * 
+     * Render view create product form.
+     *
      * @return void
      */
-    public function create() {
+    public function create()
+    {
         return view('products.create');
     }
 
     /**
-     * Store data product form
-     * 
+     * Store data product form.
+     *
      * @return void
      */
-    public function store(StoreProductRequest $request) {
+    public function store(StoreProductRequest $request)
+    {
         $data = $request->only([
             'name',
             'price',
@@ -70,7 +73,7 @@ class ProductController extends BaseController
 
         try {
             $this->product->create($data);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('fails', 'Create product fails! Try again.');
         }
 
@@ -78,27 +81,29 @@ class ProductController extends BaseController
     }
 
     /**
-     * Render view edit product form
-     * 
+     * Render view edit product form.
+     *
      * @return void
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $product = $this->product->find($id);
-        
+
         return view('products.edit')->with([
-            'product' => $product
+            'product' => $product,
         ]);
     }
 
     /**
-     * Update product by id
-     * 
+     * Update product by id.
+     *
      * @param EditProductRequest $request
      * @param $id
-     * 
+     *
      * @return void
      */
-    public function update($id, EditProductRequest $request) {
+    public function update($id, EditProductRequest $request)
+    {
         $data = $request->only([
             'name',
             'price',
@@ -118,7 +123,7 @@ class ProductController extends BaseController
         // }
 
         $this->product->update($data, $id);
+
         return redirect()->back()->with('success', 'Updated product successfuly! Good job.');
     }
-
 }

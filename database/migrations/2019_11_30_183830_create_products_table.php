@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->decimal('share_price', 8, 2)->default(0);
             // $table->integer('point')->default(0);
             $table->enum('status', ['available', 'unavailable', 'soldout', 'discount'])->default('available');
-
+            
             $table->unsignedInteger('post_by');
             $table->foreign('post_by')->references('id')->on('admins');
             $table->softDeletes();

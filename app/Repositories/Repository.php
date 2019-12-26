@@ -12,7 +12,7 @@ class Repository implements RepositoriesInterface
     protected $model;
 
     /**
-     * Constructor Repository Class.
+     * Constructor Repository Class
      */
     public function __construct(Model $model)
     {
@@ -20,7 +20,7 @@ class Repository implements RepositoriesInterface
     }
 
     /**
-     * Implement interface ${`Get all items`}.
+     * Implement interface ${`Get all items`}
      * 
      * @param array $select
      * 
@@ -38,8 +38,8 @@ class Repository implements RepositoriesInterface
     }
 
     /**
-     * Implement interface ${`Get a item by ID`}.
-     *
+     * Implement interface ${`Get a item by ID`}
+     * 
      * @param $id
      * 
      * @return Collection or fails
@@ -50,45 +50,48 @@ class Repository implements RepositoriesInterface
     }
 
     /**
-     * Implement interface ${`Create data`}.
-     *
+     * Implement interface ${`Create data`}
+     * 
      * @param array $data
-     *
+     * 
      * @return Collection
      */
-    public function create(array $data)
-    {
+    public function create(array $data) {
         return $this->model->create($data);
     }
-
+    
     /**
-     * Implement interface ${`Update Data by ID`}.
-     *
+     * Implement interface ${`Update Data by ID`}
+     * 
      * @param array $data
      * @param $id
-     *
+     * 
      * @return Collection
      */
     public function update(array $data, $id)
     {
         $result = $this->model->findOrFail($id);
 
-        if ($result) {
+        if($result) {
             return $result->update($data);
         }
+
+        return null;
     }
 
     /**
-     * Implement interface ${`Delete a item by ID`}.
-     *
+     * Implement interface ${`Delete a item by ID`}
+     * 
      * @param $id
      */
     public function delete($id)
     {
         $result = $this->model->findOrFail($id);
 
-        if ($result) {
+        if($result) {
             return $result->delete($id);
         }
+
+        return null;
     }
 }

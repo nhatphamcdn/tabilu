@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Constracts\TagRepositoryInterface;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTagRequest;
+use App\Constracts\TagRepositoryInterface;
 
 class TagController extends BaseController
 {
@@ -34,7 +35,8 @@ class TagController extends BaseController
      */
     public function store(StoreTagRequest $request)
     {
-        if ($request->ajax()) {
+        if($request->ajax())
+        {
             return $this->tags->create($request->only(['name', 'slug']));
         }
     }

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\GenerateUuid;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\GenerateUuid;
 
 class User extends Authenticatable
 {
@@ -37,7 +38,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    
     /**
      * The attribute to be used for storing the uuids.
      *

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
+
 class UserController extends BaseController
 {
     /**
@@ -15,12 +17,11 @@ class UserController extends BaseController
     }
 
     /**
-     * Render view management users.
-     *
+     * Render view management users
+     * 
      * @return void
      */
-    public function index()
-    {
+    public function index() {
         return view('users.index');
-    }
+    } 
 }

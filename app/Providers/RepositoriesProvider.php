@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Constracts\ProductRepositoryInterface;
-use App\Constracts\TagRepositoryInterface;
-use App\Repositories\ProductRepository;
-use App\Repositories\TagRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Constracts\ProductRepositoryInterface;
+use App\Repositories\ProductRepository;
+use App\Constracts\TagRepositoryInterface;
+use App\Repositories\TagRepository;
 
 class RepositoriesProvider extends ServiceProvider
 {

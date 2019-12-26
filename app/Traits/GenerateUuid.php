@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Traits;
-
 use Illuminate\Support\Str;
 
 trait GenerateUuid
 {
     /**
-     * Apply boot.
+     * Apply boot
      */
     protected static function boot()
     {
@@ -19,3 +18,5 @@ trait GenerateUuid
         });
     }
 }
+
+?>

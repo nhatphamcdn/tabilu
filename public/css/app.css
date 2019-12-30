@@ -15346,6 +15346,10 @@ html body .content {
   min-height: calc(100% - 32px);
 }
 
+html body .content.app-content {
+  height: calc(100vh - 70px);
+}
+
 html body .content .content-wrapper {
   padding: 2.2rem;
 }
@@ -15365,6 +15369,24 @@ html body .content .content-wrapper .content-wrapper-before {
   height: 120px;
   -webkit-transition: 300ms ease all;
   transition: 300ms ease all;
+}
+
+html body .content .content-wrapper.no-scroll {
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
+
+html body .content .content-wrapper .heading-card {
+  padding: 1.25rem;
+  background: #fff;
+  box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+}
+
+html body .content .content-wrapper .scroll-body {
+  overflow: overlay;
+  height: calc(100vh - 323px);
+  margin: 0 -2.2rem;
+  padding: 1rem 2.2rem 2.2rem;
 }
 
 html body.chat-application .content .content-wrapper .content-wrapper-before {
@@ -15516,8 +15538,20 @@ html body .pace .pace-progress {
   }
 }
 
-.chartist-tooltip {
-  top: 0;
+.group-pagination {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 260px);
+  background: #fff;
+  padding: 0 2.2rem;
+  height: 50px;
+  line-height: 50px;
+}
+
+.group-pagination .pagination {
+  -webkit-box-pack: end;
+          justify-content: flex-end;
 }
 
 /*=========================================================================================
@@ -17582,6 +17616,10 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
   box-shadow: 0 27px 24px 0 rgba(62, 57, 107, 0.36);
 }
 
+.max-100 {
+  max-height: 100px !important;
+}
+
 .fit {
   max-width: 100% !important;
 }
@@ -17732,6 +17770,11 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
 
 .width-95-per {
   width: 95% !important;
+}
+
+.height-44 {
+  height: 44px !important;
+  line-height: 2.5;
 }
 
 .height-50 {

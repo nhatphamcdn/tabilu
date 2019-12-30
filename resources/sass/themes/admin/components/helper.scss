@@ -255,6 +255,10 @@
 // Width && Height
 //
 
+.max-100 {
+	max-height: 100px !important;
+}
+
 .fit{
 	max-width: 100% !important;
 }
@@ -375,6 +379,10 @@
 
 //Fixed Height in px
 
+.height-44 {
+    height: 44px !important;
+    line-height: 2.5;
+}
 .height-50 {
     height: 50px !important;
 }

@@ -77,6 +77,8 @@ class ProductRepository extends Repository implements ProductRepositoryInterface
                     throw new \Exception('Attach hashtags fails! Try again.');
                 }
             }
+
+            return $product;
         });
     }
 
@@ -156,4 +158,46 @@ class ProductRepository extends Repository implements ProductRepositoryInterface
         });
     }
 
+    /**
+     * Get data with trash
+     * 
+     * @return Collection
+     */
+    public function trashedGet() {
+        return $this->model->onlyTrashed()->get();
+    }
+
+    /**
+     * Restore a product
+     * 
+     * @return Collection
+     */
+    public function restoreId($id) {
+        $product = $this->model->withTrashed()->find($id);
+
+        if(!$product) {
+            return abort(404);
+        }
+
+        try {
+            return $product->restore();
+        } catch(\Exception $e) {
+            throw new \Exception('Restore a product fails! Try again.');
+        }
+    }
+
+    /**
+     * Force delete a product
+     * 
+     * @return Collection
+     */
+    public function forceDelete($id) {
+        $product = $this->model->withTrashed()->find($id);
+
+        if(!$product) {
+            return abort(404);
+        }
+
+        return $product->forceDelete();
+    }
 }

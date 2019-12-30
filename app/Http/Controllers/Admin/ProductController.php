@@ -34,12 +34,30 @@ class ProductController extends BaseController
      * 
      * @return void
      */
-    public function index() {
-        $products = $this->product->all();
+    public function index(Request $request) {
+        if(!$show = $request->show) {
+            $products = $this->product->paginate(5);
+        } else {
+            $products = $this->product->trashedGet();
+        }
 
         return view('products.index')->with([
-            'products' => $products
+            'products' => $products,
+            'show' => $show,
         ]);
+    } 
+
+    /**
+     * Restore a product
+     * 
+     * @param $id
+     * 
+     * @return void
+     */
+    public function restore($id) {
+        $this->product->restoreId($id);
+
+        return redirect()->route('admin.products')->with('success', 'Restore a product successfuly! Good job.');
     } 
 
     /**
@@ -69,12 +87,12 @@ class ProductController extends BaseController
         ]);
 
         try {
-            $this->product->create($data);
+            $product = $this->product->create($data);
         } catch(\Exception $e) {
             return redirect()->back()->with('fails', 'Create product fails! Try again.');
         }
 
-        return redirect()->back()->with('success', 'Created product successfuly! Good job.');
+        return redirect()->route('admin.products.edit', $product->id)->with('success', 'Created product successfuly! Good job.');
     }
 
     /**
@@ -111,14 +129,46 @@ class ProductController extends BaseController
             'edit_images',
         ]);
 
-        // try {
-        //     $this->product->create($data);
-        // } catch(\Exception $e) {
-        //     return redirect()->back()->with('fails', 'Create product fails! Try again.');
-        // }
+        try {
+            $this->product->update($data, $id);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('fails', 'Update product fails! Try again.');
+        }
 
-        $this->product->update($data, $id);
         return redirect()->back()->with('success', 'Updated product successfuly! Good job.');
     }
 
+    /**
+     * Delete product by id
+     * 
+     * @param $id
+     * 
+     * @return void
+     */
+    public function destroy($id) {
+        try {
+            $this->product->delete($id);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('fails', 'Delete product fails! Try again.');
+        }
+
+        return redirect()->back()->with('success', 'Delete product successfuly! Good job.');
+    }
+
+    /**
+     * Force Delete product by id
+     * 
+     * @param $id
+     * 
+     * @return void
+     */
+    public function delete($id) {
+        try {
+            $this->product->forceDelete($id);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('fails', 'Delete product fails! Try again.');
+        }
+
+        return redirect()->back()->with('success', 'Hard Delete a product successfuly! Good job.');
+    }
 }

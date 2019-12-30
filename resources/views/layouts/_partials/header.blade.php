@@ -8,13 +8,13 @@
 							<i class="ft-menu"></i>
 						</a>
 					</li>
-					<li class="nav-item dropdown navbar-search">
+					{{-- <li class="nav-item dropdown navbar-search">
 						<form>
 							<div class="input-group search-box">
 								<input class="form-control" id="search" type="text" placeholder="Search here...">
 							</div>
 						</form>
-					</li>
+					</li> --}}
 				</ul>
 				<ul class="nav navbar-nav float-right align-items-center">
 					<li class="nav-item d-none d-md-inline-block">

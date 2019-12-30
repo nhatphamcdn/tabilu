@@ -24,7 +24,7 @@ class Repository implements RepositoriesInterface
      * 
      * @param array $select
      * 
-     * return LazyCollection
+     * @return Collection
      */
     public function all(array $select = ['*']) {
         return $this->model->select($select)->get();
@@ -34,7 +34,7 @@ class Repository implements RepositoriesInterface
      * Implement interface ${`Get paginate`}
      */
     public function paginate($pageNumber = 10) {
-        return $this->model->paginate($pageNumber);
+        return $this->model->latest()->paginate($pageNumber);
     }
 
     /**

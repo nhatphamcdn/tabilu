@@ -108,7 +108,9 @@ function initLoaderImage(productImages) {
 }
 
 $(document).ready(function () {
-  initLoaderImage(productImages);
+  if ($('.input-images').length) {
+    initLoaderImage(productImages);
+  }
 });
 
 /***/ }),

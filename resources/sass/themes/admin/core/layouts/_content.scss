@@ -38,10 +38,11 @@ html {
             backface-visibility: hidden;
             min-height: calc(100% - 32px);
             &.app-content{
-                // overflow: hidden;
+                height: calc(100vh - 70px);
             }
             .content-wrapper {
                 padding: 2.2rem;
+
                 .content-header-title{
                     font-weight: 700;
                     letter-spacing: 1px;
@@ -59,6 +60,24 @@ html {
                     width: 100%;
                     height: 120px;
                     transition: 300ms ease all;
+                }
+
+                &.no-scroll {
+                    height: calc(100vh - 70px);
+                    overflow: hidden;
+                }
+
+                .heading-card {
+                    padding: 1.25rem;
+                    background: #fff;
+                    box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+                }
+
+                .scroll-body {
+                    overflow: overlay;
+                    height: calc(100vh - 323px);
+                    margin: 0 -2.2rem;
+                    padding: 1rem 2.2rem 2.2rem;
                 }
             }
         }
@@ -238,7 +257,17 @@ html {
 }
 
 
-// Chartist tooltip fix
-.chartist-tooltip{
-  top: 0;
+.group-pagination {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 260px);
+    background: #fff;
+    padding: 0 2.2rem;
+    height: 50px;
+    line-height: 50px;
+
+    .pagination {
+        justify-content: flex-end;
+    }
 }

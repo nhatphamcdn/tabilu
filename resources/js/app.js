@@ -95,8 +95,11 @@ $(document).ready(function() {
 
   // Init Trumbowyg Editor
   constant._initTrumbowyg();
+
   // Init selectize
-  constant._initSelectize();
+  if($('#select-hashtag').length) {
+    constant._initSelectize();
+  }
 });
 
 // Instant click handle

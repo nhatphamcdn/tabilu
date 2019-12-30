@@ -5,10 +5,10 @@ namespace App\Constracts;
 interface ProductRepositoryInterface
 {
     /**
-     * Create data
-     * 
+     * Create data.
+     *
      * @param array $data
-     * 
+     *
      * @return Collection
      */
     public function create(array $data);

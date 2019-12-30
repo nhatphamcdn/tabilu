@@ -33,7 +33,7 @@ class StoreProductRequest extends FormRequest
             'price' => 'numeric',
             'sale_price' => 'numeric',
             'share_price' => 'numeric',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ];
     }
 }

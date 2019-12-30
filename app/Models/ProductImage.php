@@ -16,7 +16,7 @@ class ProductImage extends Model
         'path',
         'order',
     ];
-    
+
     /**
      * Get the product of the image.
      */
@@ -27,6 +27,6 @@ class ProductImage extends Model
 
     public function getPathAttribute($value)
     {
-        return asset('/product-images/' . $value);
+        return asset('/product-images/'.$value);
     }
 }

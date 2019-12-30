@@ -3,7 +3,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 // Admin Group Routes...
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->group(function () {
     // Auth Routes
     Auth::routes(['register' => false, 'verify' => false]);
 
@@ -13,11 +13,10 @@ Route::prefix('admin')->group(function() {
 
     // Dasboard Routes...
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
-    
 
     // Tags Routes...
     Route::post('/tags/create', 'Admin\TagController@store')->name('admin.tags.store');
-    
+
     // Products Routes...
     Route::get('/products', 'Admin\ProductController@index')->name('admin.products');
     Route::get('/products/create', 'Admin\ProductController@create')->name('admin.products.create');
@@ -30,7 +29,7 @@ Route::prefix('admin')->group(function() {
 
     // Users Routes...
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');
-    
+
     // Admins Routes...
     Route::get('/user-admins', 'Admin\AdminController@index')->name('admins');
 });

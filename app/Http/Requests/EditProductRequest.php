@@ -27,13 +27,13 @@ class EditProductRequest extends FormRequest
         $this->slug = Str::slug($this->name);
 
         return [
-            'name' => 'required|max:90|unique:products,name,' . $this->id,
-            'slug' => 'max:255|unique:products,slug,' . $this->id,
+            'name' => 'required|max:90|unique:products,name,'.$this->id,
+            'slug' => 'max:255|unique:products,slug,'.$this->id,
             'content' => 'required',
             'price' => 'numeric',
             'sale_price' => 'numeric',
             'share_price' => 'numeric',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ];
     }
 }

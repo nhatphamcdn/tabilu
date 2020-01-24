@@ -31,6 +31,13 @@ interface ProductRepositoryInterface
     public function trashedGet();
 
     /**
+     * Search data products and relation.
+     * @param $keyword
+     * @return Collection
+     */
+    public function search($keyword);
+
+    /**
      * Restore a product
      * 
      * @return Collection

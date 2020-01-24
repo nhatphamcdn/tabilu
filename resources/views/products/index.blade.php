@@ -15,10 +15,10 @@
 
     <div class="content-body pt-3">
         <div class="searchs-form mb-4">
-            <form action={{ route('admin.products') }} method="get">
+            <form action={{ route('admin.products.search', ['search_query' => request()->search_query]) }} method="get">
                 <div class="row">
                     <div class="col-md-8">
-                        <input class="form-control" name="search_query" id="search" type="text" placeholder="Search here...">
+                        <input class="form-control" name="search_query" id="search" type="text" placeholder="Input keyword (tags name, product name)...">
                     </div>
                     <div class="col-md-4 text-right">
                         <button class="btn btn-secondary height-44 float-left">Apply</button>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="actions text-right">
-                                    @if(!$show)
+                                    @if(!$show || $show === 'searching')
                                         <a href={{ route('admin.products.edit', $product->id) }} class="btn btn-sm btn-primary">
                                             <i class="la la-edit"></i>
                                         </a>
@@ -137,11 +137,13 @@
         <div class="group-pagination">
             <div class="row">
                 <div class="col-md-3">
-                    <a href={{ route('admin.products', ['show' => !$show  ? 'trashed' : null]) }} class="btn btn-warning">{{ !$show ? __('List trashed') : __('List available') }}</a>
+                    <a href={{ route('admin.products', ['show' => !$show  ? 'trashed' : null]) }} class="btn btn-warning">
+                        {{ !$show ? __('List trashed') : ($show === 'searching' ? __('List products') : __('List available')) }}
+                    </a>
                 </div>
-                <div class="col-md-9">
+				<div class="col-md-9 d-flex justify-content-end align-items-center">
                     @if(!$show)
-                        {{ $products->links() }}
+                        {{ $products->render() }}
                     @endif
                 </div>
             </div>

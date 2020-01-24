@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/products/{id}/delete', 'Admin\ProductController@destroy')->name('admin.products.delete');
     Route::post('/products/{id}/force-delete', 'Admin\ProductController@delete')->name('admin.products.forceDelete');
     Route::get('/products/{id}/restores', 'Admin\ProductController@restore')->name('admin.products.restore');
+    Route::get('/search/{query_search?}', 'Admin\ProductController@search')->name('admin.products.search');
 
     // Users Routes...
     Route::get('/users', 'Admin\UserController@index')->name('admin.users');

@@ -168,6 +168,20 @@ class ProductRepository extends Repository implements ProductRepositoryInterface
     }
 
     /**
+     * Search data product and relation
+     * 
+     * @param $keyword
+     * @return Collection
+     */
+    public function search($keyword) {
+        return $this->model->whereHas('tags', function ($query) use ($keyword){
+            $query->where('name', 'like', "%{$keyword}%");
+        })->with(['tags' => function($query) use ($keyword){
+            $query->where('name', 'like', "%{$keyword}%");
+        }])->orWhere('name', 'like', "%{$keyword}%")->get();
+    }
+
+    /**
      * Restore a product
      * 
      * @return Collection

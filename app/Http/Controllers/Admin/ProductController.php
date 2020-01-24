@@ -35,15 +35,33 @@ class ProductController extends BaseController
      * @return void
      */
     public function index(Request $request) {
-        if(!$show = $request->show) {
-            $products = $this->product->paginate(5);
-        } else {
+        $products = $this->product->paginate(5);
+        
+        if($show = $request->show) {
             $products = $this->product->trashedGet();
         }
 
         return view('products.index')->with([
             'products' => $products,
             'show' => $show,
+        ]);
+    }
+
+    /**
+     * Search product
+     * 
+     * @return void
+     */
+    public function search(Request $request) {
+        if(!$search_query = $request->search_query) {
+            return redirect()->route('admin.products');
+        }
+        
+        $products = $this->product->search($search_query);
+        
+        return view('products.index')->with([
+            'products' => $products,
+            'show' => 'searching',
         ]);
     } 
 

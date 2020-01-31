@@ -7,7 +7,7 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}" data-instant-track>
 		<meta name="keywords" content="111">
 		<title>{{ config('app.name', 'Tabilu') }} {{ __(' | ') }} @yield('metaTitle')</title>
-		<link href="{{ asset('/css/preloader.css') }}" rel="stylesheet">
+		<link href="{{ asset('/css/systems/preloader.css') }}" rel="stylesheet">
 		<link href="#" id="yield-link" rel="stylesheet">
 		@stack('css')
 	</head>
@@ -24,11 +24,11 @@
 		@stack('variables')
 		
 		{{-- Import Javascript --}}
-		<script src="{{ asset('/js/instantclick.min.js') }}" data-no-instant></script>
+		<script src="{{ asset('/js/systems/instantclick.min.js') }}" data-no-instant></script>
 		<script data-no-instant>InstantClick.init();</script>
-		<script src="{{ asset('/js/app.js') }}" data-instant-track></script>
-    <script src="{{ asset('/js/image-uploader.js') }}" data-instant-track></script>
-		<script src="{{ asset('/js/upload-custom.js') }}" data-instant-track></script>
+		<script src="{{ asset('/js/systems/app.js') }}" data-instant-track></script>
+    <script src="{{ asset('/js/systems/image-uploader.js') }}" data-instant-track></script>
+		<script src="{{ asset('/js/systems/upload-custom.js') }}" data-instant-track></script>
 		{{-- End Import Javascript --}}
 
 	</body>

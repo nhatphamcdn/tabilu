@@ -1,8 +1,10 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/login.css": "/css/login.css",
-    "/css/app.css": "/css/app.css",
-    "/css/preloader.css": "/css/preloader.css",
-    "/js/upload-custom.js": "/js/upload-custom.js",
+    "/js/client/app.js": "/js/client/app.js",
+    "/js/systems/app.js": "/js/systems/app.js",
+    "/css/systems/login.css": "/css/systems/login.css",
+    "/css/systems/app.css": "/css/systems/app.css",
+    "/css/systems/preloader.css": "/css/systems/preloader.css",
+    "/css/client/app.css": "/css/client/app.css",
+    "/js/systems/upload-custom.js": "/js/systems/upload-custom.js",
     "/img/icons/trumbowyg/icons.svg": "/img/icons/trumbowyg/icons.svg"
 }

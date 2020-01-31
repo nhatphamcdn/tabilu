@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('css_link', asset('/css/login.css'))
+@section('css_link', asset('/css/systems/login.css'))
 
 {{-- Set Meta Title --}}
 @section('metaTitle', 'Login')

@@ -23743,10 +23743,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/systems/app.js":
+/*!*************************************!*\
+  !*** ./resources/js/systems/app.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23757,7 +23757,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/systems/bootstrap.js");
 
 __webpack_require__(/*! trumbowyg */ "./node_modules/trumbowyg/dist/trumbowyg.js");
 
@@ -23864,10 +23864,10 @@ InstantClick.on('change', function () {
 
 /***/ }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
+/***/ "./resources/js/systems/bootstrap.js":
+/*!*******************************************!*\
+  !*** ./resources/js/systems/bootstrap.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23915,10 +23915,10 @@ $.ajaxSetup({
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/sass/client/app.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/client/app.scss ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -23926,10 +23926,10 @@ $.ajaxSetup({
 
 /***/ }),
 
-/***/ "./resources/sass/login.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/login.scss ***!
-  \***********************************/
+/***/ "./resources/sass/systems/app.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/systems/app.scss ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -23937,10 +23937,21 @@ $.ajaxSetup({
 
 /***/ }),
 
-/***/ "./resources/sass/preloader.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/preloader.scss ***!
-  \***************************************/
+/***/ "./resources/sass/systems/login.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/systems/login.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/systems/preloader.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/systems/preloader.scss ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -23949,16 +23960,17 @@ $.ajaxSetup({
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/login.scss ./resources/sass/app.scss ./resources/sass/preloader.scss ***!
-  \*************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/systems/app.js ./resources/sass/systems/login.scss ./resources/sass/systems/app.scss ./resources/sass/systems/preloader.scss ./resources/sass/client/app.scss ***!
+  \******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/login.scss */"./resources/sass/login.scss");
-__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/preloader.scss */"./resources/sass/preloader.scss");
+__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/js/systems/app.js */"./resources/js/systems/app.js");
+__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/systems/login.scss */"./resources/sass/systems/login.scss");
+__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/systems/app.scss */"./resources/sass/systems/app.scss");
+__webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/systems/preloader.scss */"./resources/sass/systems/preloader.scss");
+module.exports = __webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/sass/client/app.scss */"./resources/sass/client/app.scss");
 
 
 /***/ })

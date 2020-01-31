@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/upload-custom.js":
-/*!***************************************!*\
-  !*** ./resources/js/upload-custom.js ***!
-  \***************************************/
+/***/ "./resources/js/systems/upload-custom.js":
+/*!***********************************************!*\
+  !*** ./resources/js/systems/upload-custom.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -116,13 +116,13 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 1:
-/*!*********************************************!*\
-  !*** multi ./resources/js/upload-custom.js ***!
-  \*********************************************/
+/*!*****************************************************!*\
+  !*** multi ./resources/js/systems/upload-custom.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/js/upload-custom.js */"./resources/js/upload-custom.js");
+module.exports = __webpack_require__(/*! /var/www/html/KIN-DEV/shop-earn-money/resources/js/systems/upload-custom.js */"./resources/js/systems/upload-custom.js");
 
 
 /***/ })

@@ -21,6 +21,6 @@ class AdminController extends BaseController
      */
     public function index()
     {
-        return view('admins.index');
+        return view('user-admins.index');
     }
 }

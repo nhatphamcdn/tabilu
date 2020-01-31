@@ -2,6 +2,24 @@ const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
+ | Config webpack
+ |--------------------------------------------------------------------------
+ |
+ | Something config...
+ |
+ */
+
+mix.webpackConfig({
+   resolve: {
+      extensions: ['.js', '.vue'],
+      alias: {
+         '@': __dirname + '/resources/js/client'
+      }
+   }
+});
+
+/*
+ |--------------------------------------------------------------------------
  | Mix Asset Management
  |--------------------------------------------------------------------------
  |
@@ -11,9 +29,14 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/upload-custom.js', 'public/js')
-   .sass('resources/sass/login.scss', 'public/css')
-   .sass('resources/sass/app.scss', 'public/css')
-   .sass('resources/sass/preloader.scss', 'public/css')
+mix.js('resources/js/systems/app.js', 'public/js/systems')
+   .js('resources/js/systems/upload-custom.js', 'public/js/systems')
+   .sass('resources/sass/systems/login.scss', 'public/css/systems')
+   .sass('resources/sass/systems/app.scss', 'public/css/systems')
+   .sass('resources/sass/systems/preloader.scss', 'public/css/systems')
    .copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/img/icons/trumbowyg');
+
+// mix.browserSync('tabilu.local');
+
+mix.sass('resources/sass/client/app.scss', 'public/css/client');
+mix.js('resources/js/client/app.js', 'public/js/client');

@@ -2,7 +2,7 @@
 
 {{-- Style inport --}}
 @push('css')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/systems/app.css') }}" rel="stylesheet">
 @endpush
 {{-- End Style inport --}}
 

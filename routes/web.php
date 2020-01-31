@@ -1,8 +1,9 @@
 <?php
 
-Route::get('/', 'HomeController@index')->name('home');
+/** Client route */
+Route::get('/{any}', 'HomeController@index')->where('any', '.*')->name('home');
 
-// Admin Group Routes...
+/** Admin Group Routes... */
 Route::prefix('admin')->group(function () {
     // Auth Routes
     Auth::routes(['register' => false, 'verify' => false]);

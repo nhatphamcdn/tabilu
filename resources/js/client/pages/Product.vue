@@ -4,6 +4,8 @@
 
 <script>
     export default {
+        name: 'Product',
+        
         mounted() {
             console.log('Component mounted.')
         }

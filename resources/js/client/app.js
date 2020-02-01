@@ -1,17 +1,16 @@
 import './bootstrap';
 
-import Vue from 'vue';
+// import Vue from 'vue';
 
-// Route information for Vue Router
-import Routes from './resources/routes';
+// // Route information for Vue Router
+// import router from '@client/router';
 
-// Component File
-import App from './views/App';
+// // Component File
+// import App from '@client/views/App';
 
-const app = new Vue({
-  el: '#app',
-  router: Routes,
-  render: createElement => createElement(App),
-});
+// const app = new Vue({
+//   router,
+//   ...App
+// });
 
-export default app;
+// export default app;

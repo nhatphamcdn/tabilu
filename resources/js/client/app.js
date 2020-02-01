@@ -1,16 +1,16 @@
 import './bootstrap';
 
-// import Vue from 'vue';
+import Vue from 'vue';
 
-// // Route information for Vue Router
-// import router from '@client/router';
+// Route information for Vue Router
+import router from '@client/router';
 
-// // Component File
-// import App from '@client/views/App';
+// Component File
+import App from '@client/views/App';
 
-// const app = new Vue({
-//   router,
-//   ...App
-// });
+const app = new Vue({
+  router,
+  ...App
+});
 
-// export default app;
+export default app;

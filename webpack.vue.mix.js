@@ -2,7 +2,7 @@ const path = require('path');
 const mix = require('laravel-mix');
 
 // Mix only javascript
-mix.js('resources/js/client/app.js', 'public/js/client').extract(['vue']);
+mix.js('resources/js/client/app.js', 'public/js/client');
 
 
 /*

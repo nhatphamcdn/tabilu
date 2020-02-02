@@ -87,18 +87,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	@import '@client/sass/_variables.scss';
-
-	.progress {
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		right: 0px;
-		height: 2px;
-		width: 0%;
-		transition: width 0.2s, opacity 0.4s;
-		opacity: 1;
-		background-color: $loadingBar;
-		z-index: 999999;
-	}
+	@import '@client/sass/modules/loading.scss';
 </style>

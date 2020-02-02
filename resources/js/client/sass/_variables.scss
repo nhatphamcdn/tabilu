@@ -1,1 +1,14 @@
+// Loading
 $loadingBar: #20a3ff;
+
+// Header
+$navItem: #41b883;
+$navLink: #3e3a37;
+
+/* Navar include: background, border, color... can apply for all children. */
+$navbarWhite: #ffffff;
+
+/** Can apply for all children. */
+$navGrey: #dad9d7;
+
+$bodyHeight_8: calc((100vh - 113px) / 8);

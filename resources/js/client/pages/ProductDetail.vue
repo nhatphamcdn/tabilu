@@ -1,10 +1,10 @@
 <template>
-    <span>PRODUCTS PAGE IS COMMING SOON.</span>
+    <span>PRODUCT DETAIL PAGE IS COMMING SOON.</span>
 </template>
 
 <script>
     export default {
-        name: 'Product',
+        name: 'ProductDetail',
         
         mounted() {
             console.log('Component mounted.')

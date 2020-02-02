@@ -1,0 +1,157 @@
+@import '@client/sass/_variables';
+
+.header {
+	display: flex;
+	z-index: 1;
+	padding: 10px 0;
+	background-color: $navbarWhite;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	justify-content: center;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.33s;
+    
+    h1 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+	&__wrap {
+		padding: 0 2%;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: row;
+
+		li {
+			position: relative;
+			user-select: none;
+			margin-left: 20px;
+
+			a {
+				color: $navLink;
+				cursor: pointer;
+				font-size: 1.15em;
+				border: none;
+				border-bottom: 2px solid $navbarWhite;
+				transition: 0.15s;
+				background: none;
+				&:hover {
+					border-bottom-color: $navItem;
+					color: $navItem;
+					i {
+						background-color: $navItem;
+					}
+				}
+			}
+		}
+	}
+
+	&__hamburger {
+		cursor: pointer;
+		border-radius: 50%;
+		position: absolute;
+		left: 3%;
+		top: 0;
+		display: none;
+
+		span {
+			height: 2px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			background-color: $navLink;
+			display: block;
+			transition: 0.33s;
+			&:nth-child(1) {
+				width: 12px;
+			}
+			&:nth-child(2) {
+				width: 24px;
+			}
+			&:nth-child(3) {
+				width: 12px;
+			}
+		}
+	}
+}
+
+.display-menu .header__hamburger {
+	
+	span:nth-child(1) {
+		transform: rotate(45deg) translate(2px, 1px);
+	}
+
+	span:nth-child(2) {
+		transform: rotate(-45deg);
+	}
+
+	span:nth-child(3) {
+		transform: rotate(45deg) translate(6px, -9px);
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.header{
+        &__wrap {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &__hamburger {
+            display: block;
+        }
+
+        &__menu {
+            width: 100%;
+            display: block;
+            height: 0;
+            transform-origin: 50% 0;
+            transition: 0.33s ease;
+            flex-direction: column;
+
+            li {
+                height: 0;
+                opacity: 0;
+                margin-left: 0;
+                transition: 0.25s ease;
+                a {
+                    left: 0;
+                    line-height: $bodyHeight_8;
+                    padding-left: 20px;
+                    border: none;
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    &:hover {
+                        color: $navbarWhite;
+                        background-color: $navItem;
+                        i {
+                            background-color: $navbarWhite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .display-menu .header__menu {
+        height: calc(100vh - 64px);
+        
+		li {
+			height: $bodyHeight_8;
+			border-bottom: 1px solid $navGrey;
+			transition: 0.25s ease;
+			opacity: 1;
+			display: block;
+		}
+    }
+}

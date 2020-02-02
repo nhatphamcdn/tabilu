@@ -1,5 +1,5 @@
 <template>
-    <span>PRODUCTS PAGE IS COMMING SOON.</span>
+    <span>BLOG PAGE IS COMMING SOON.</span>
 </template>
 
 <script>

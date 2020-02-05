@@ -2,6 +2,7 @@
 
 .header {
 	display: flex;
+	align-items: center;
 	z-index: 1;
 	padding: 10px 0;
 	background-color: $navbarWhite;
@@ -10,7 +11,8 @@
 	top: 0;
 	justify-content: center;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    transition: 0.33s;
+	transition: 0.33s;
+	height: 65px;
     
     h1 {
         font-size: 1.2rem;

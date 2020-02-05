@@ -1,0 +1,55 @@
+@import "@client/sass/_variables";
+
+.product {
+    margin-top: 70px;
+    
+    &,
+    &__inner {
+        position: relative;
+    }
+
+    &__thumb {
+        a {
+            display: block;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__details {
+        padding-top: 27px;
+        
+        h2 {
+            color: $textDefault;
+            font-size: $fontSizeDefault;
+            font-weight: 700;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    &__price {
+        display: block;
+        margin-top: 9px;
+
+        li {
+            display: inline-block;
+            color: $textHighLight;
+            font-size: $fontSizeHigh;
+            font-weight: 500;
+        }
+
+        .base__price {
+            color: $textDisable;
+            text-decoration: line-through;
+        }
+        
+        .sale__price {
+            padding-left: 12px;
+        }
+    }
+}

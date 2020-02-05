@@ -1,4 +1,16 @@
-// Reset
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap');
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+// Custom Reset
+body {
+  	font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
 
 ul,
 li,
@@ -17,5 +29,14 @@ a {
 
     &:hover {
         text-decoration: none;
+    }
+}
+
+img {
+    max-width: 100%;
+    transition: all 0.3s ease-out 0s;
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }

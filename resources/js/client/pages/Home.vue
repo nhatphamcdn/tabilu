@@ -1,13 +1,19 @@
 <template>
-    <span>LANDING IS COMMING SOON.</span>
+    <div class="home">
+        <Product />
+    </div>
 </template>
 
 <script>
+    import Product from '@client/pages/partials/Product';
+    
     export default {
         name: 'Home',
-
+        components: {
+            Product,
+        },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Home Component mounted.')
         }
     }
 </script>

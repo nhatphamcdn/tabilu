@@ -1,10 +1,7 @@
 <template>
-    <div class="flex-center position-ref full-height">
+    <div class="default-layout">
         <Header />
-
-        <div class="content">
-            <Container />
-        </div>
+        <Container />
     </div>
 </template>
 
@@ -21,3 +18,7 @@ export default {
 	}
 };
 </script>
+
+<style lang="scss">
+    @import "@client/sass/modules/layout";
+</style>

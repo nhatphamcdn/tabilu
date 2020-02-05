@@ -7,7 +7,6 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<title>{{ config('app.name', 'Tabilu') }}</title>
 		<link href="{{ asset('/css/client/app.css') }}" rel="stylesheet">
-		<link href="{{ asset('/css/welcome.css') }}" rel="stylesheet">
 	</head>
 	<body>
         <div id="app"></div>

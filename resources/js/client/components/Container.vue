@@ -1,11 +1,7 @@
 <template>
     <transition name="page" mode="out-in">
         <slot>
-            <div class="title m-b-md">
-                <h1>
-                    <strong>TABILU</strong>
-                </h1>
-
+            <div class="container">
                 <router-view />
             </div>
         </slot>
